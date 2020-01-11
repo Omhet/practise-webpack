@@ -1,15 +1,35 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+const outputDir = path.resolve(__dirname, 'dist');
 
 module.exports = {
     entry: {
-        app: './src/index.js',
-        print: './src/js/print.js',
+        main: './src/index.js',
+        // print: './src/js/print.js',
     },
     output: {
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        filename: '[name].[contenthash].js',
+        // chunkFilename: '[name].bundle.js',
+        path: outputDir
+    },
+    mode: 'development',
+    // devtool: 'inline-source-map',
+    devServer: {
+        contentBase: outputDir
+    },
+    optimization: {
+        runtimeChunk: 'single',
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'all'
+                }
+            }
+        }
     },
     plugins: [
         new CleanWebpackPlugin(),
