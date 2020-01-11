@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../font/Roboto-Medium.ttf') format('ttf')
+}
+
+.hello {
+    color: cornflowerblue;
+    font-family: 'Roboto';
+}
