@@ -5,12 +5,13 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const outputDir = path.resolve(__dirname, 'dist');
 
 module.exports = {
-    entry: {
-        main: './src/index.js',
-    },
+    entry: './src/index.ts',
     output: {
         filename: '[name].[contenthash].js',
         path: outputDir
+    },
+    resolve: {
+      extensions: ['.tsx', '.ts', '.js']  
     },
     plugins: [
         new CleanWebpackPlugin(),
@@ -20,6 +21,11 @@ module.exports = {
     ],
     module: {
         rules: [
+            {
+                test: /\.tsx?$/,
+                use: ['ts-loader'],
+                include: '/src'
+            },
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']

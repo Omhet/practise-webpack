@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import './style/style.css';
-import print from './js/print.js';
+import print from './code/print';
 import Icon from './img/flower.png';
 import DataXML from './data/data.xml';
 import DataJSON from './data/data.json';
