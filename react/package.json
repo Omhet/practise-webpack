@@ -2,7 +2,8 @@
   "scripts": {
     "start": "webpack-dev-server  --config webpack.common.js --mode development --hot",
     "build": "webpack --config webpack.common.js  --mode production",
-    "check-types": "tsc"
+    "check-types": "tsc",
+    "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
     "react": "^16.12.0",
@@ -17,9 +18,14 @@
     "@babel/preset-typescript": "^7.8.3",
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
+    "@typescript-eslint/eslint-plugin": "^2.17.0",
+    "@typescript-eslint/parser": "^2.17.0",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.4.2",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
     "html-webpack-plugin": "^3.2.0",
     "style-loader": "^1.1.3",
     "typescript": "^3.7.5",
